@@ -48,9 +48,211 @@ export default function TechnicalPage() {
         subtitle="Carob is a drought-tolerant, low-input crop with 100+ year lifespan and proven commercial viability."
       />
 
+      {/* About the Carob Tree */}
+      <section className="mb-12">
+        <div className="bg-gradient-to-br from-green-800 to-green-900 rounded-2xl p-8 text-white">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="text-5xl">🌳</span>
+            <div>
+              <h3 className="text-2xl font-bold">The Carob Tree</h3>
+              <p className="text-green-200 italic">{proposal.technical.crop.name}</p>
+            </div>
+          </div>
+
+          <div className="bg-white/10 rounded-xl p-5 mb-6">
+            <p className="text-green-50 leading-relaxed">
+              {proposal.technical.aboutTheTree.history}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
+            {proposal.technical.aboutTheTree.commonNames.map((name, i) => (
+              <span key={i} className="px-3 py-2 bg-white/10 rounded-lg text-sm text-center">
+                {name}
+              </span>
+            ))}
+          </div>
+
+          <p className="text-green-100">
+            {proposal.technical.aboutTheTree.description}
+          </p>
+        </div>
+      </section>
+
+      {/* Botanical Features */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Botanical Features</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {proposal.technical.aboutTheTree.botanicalFeatures.map((item) => (
+            <div key={item.feature} className="bg-white rounded-xl border border-gray-100 p-5">
+              <h4 className="font-semibold text-primary-700 mb-2">{item.feature}</h4>
+              <p className="text-sm text-gray-600">{item.detail}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Unique Properties */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">What Makes Carob Unique</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {proposal.technical.aboutTheTree.uniqueProperties.map((item) => (
+            <div key={item.property} className="bg-primary-50 rounded-xl border border-primary-100 p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-6 h-6 rounded-full bg-primary-200 flex items-center justify-center text-primary-700 text-sm">✓</span>
+                <h4 className="font-semibold text-primary-800">{item.property}</h4>
+              </div>
+              <p className="text-sm text-primary-700">{item.detail}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Pod Composition */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">What&apos;s in a Carob Pod?</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-xl border border-gray-100 p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h4 className="font-semibold text-gray-900">Pulp</h4>
+              <span className="text-2xl font-bold text-primary-600">{proposal.technical.aboutTheTree.podComposition.pulp.percent}%</span>
+            </div>
+            <div className="w-full bg-gray-100 rounded-full h-3 mb-4">
+              <div className="bg-primary-500 h-3 rounded-full" style={{ width: '90%' }} />
+            </div>
+            <ul className="space-y-2">
+              {proposal.technical.aboutTheTree.podComposition.pulp.components.map((c, i) => (
+                <li key={i} className="text-sm text-gray-600 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-primary-400 rounded-full" />
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-100 p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h4 className="font-semibold text-gray-900">Seeds</h4>
+              <span className="text-2xl font-bold text-secondary-600">{proposal.technical.aboutTheTree.podComposition.seeds.percent}%</span>
+            </div>
+            <div className="w-full bg-gray-100 rounded-full h-3 mb-4">
+              <div className="bg-secondary-500 h-3 rounded-full" style={{ width: '10%' }} />
+            </div>
+            <ul className="space-y-2">
+              {proposal.technical.aboutTheTree.podComposition.seeds.components.map((c, i) => (
+                <li key={i} className="text-sm text-gray-600 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-secondary-400 rounded-full" />
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Uses of Carob */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Commercial Uses</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-xl border border-gray-100 p-6">
+            <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="text-xl">🍫</span> Food Products
+            </h4>
+            <div className="space-y-3">
+              {proposal.technical.aboutTheTree.uses.food.map((item) => (
+                <div key={item.product} className="border-b border-gray-100 pb-2 last:border-0">
+                  <span className="font-medium text-gray-800">{item.product}</span>
+                  <p className="text-sm text-gray-500">{item.use}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-100 p-6">
+            <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="text-xl">🏭</span> Industrial Applications
+            </h4>
+            <div className="space-y-3">
+              {proposal.technical.aboutTheTree.uses.industrial.map((item) => (
+                <div key={item.product} className="border-b border-gray-100 pb-2 last:border-0">
+                  <span className="font-medium text-gray-800">{item.product}</span>
+                  <p className="text-sm text-gray-500">{item.use}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-100 p-6">
+            <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="text-xl">💊</span> Health & Nutrition
+            </h4>
+            <div className="space-y-3">
+              {proposal.technical.aboutTheTree.uses.health.map((item) => (
+                <div key={item.product} className="border-b border-gray-100 pb-2 last:border-0">
+                  <span className="font-medium text-gray-800">{item.product}</span>
+                  <p className="text-sm text-gray-500">{item.use}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-100 p-6">
+            <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="text-xl">🔧</span> Other Uses
+            </h4>
+            <div className="space-y-3">
+              {proposal.technical.aboutTheTree.uses.other.map((item) => (
+                <div key={item.product} className="border-b border-gray-100 pb-2 last:border-0">
+                  <span className="font-medium text-gray-800">{item.product}</span>
+                  <p className="text-sm text-gray-500">{item.use}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Carob vs Cocoa */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Carob vs Cocoa: Nutritional Comparison</h3>
+        <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Nutrient</th>
+                <th className="px-4 py-3 text-right text-xs font-semibold text-primary-600 uppercase">Carob</th>
+                <th className="px-4 py-3 text-right text-xs font-semibold text-gray-500 uppercase">Cocoa</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              {proposal.technical.aboutTheTree.nutritionalComparison.map((row) => (
+                <tr key={row.nutrient}>
+                  <td className="px-4 py-3 text-sm text-gray-700">{row.nutrient}</td>
+                  <td className="px-4 py-3 text-sm text-right font-medium text-primary-700">{row.carob}</td>
+                  <td className="px-4 py-3 text-sm text-right text-gray-600">{row.cocoa}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Fun Facts */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Did You Know?</h3>
+        <div className="bg-secondary-50 rounded-xl border border-secondary-100 p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {proposal.technical.aboutTheTree.funFacts.map((fact, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <span className="w-8 h-8 rounded-full bg-secondary-200 text-secondary-700 flex items-center justify-center flex-shrink-0 font-bold text-sm">
+                  {i + 1}
+                </span>
+                <p className="text-sm text-secondary-800">{fact}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Crop Profile */}
       <section className="mb-12">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">Crop Profile</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Crop Profile Summary</h3>
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {Object.entries(proposal.technical.crop).map(([key, value]) => (
