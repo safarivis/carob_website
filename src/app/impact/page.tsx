@@ -165,6 +165,67 @@ export default function ImpactPage() {
         <RiskMatrix />
       </section>
 
+      {/* 100-Year Asset - Generational Wealth */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Generational Wealth Creation</h3>
+        <div className="bg-gradient-to-br from-secondary-600 to-secondary-800 rounded-2xl p-8 text-white">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+              <span className="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded-full mb-4">
+                100-YEAR ASSET
+              </span>
+              <h4 className="text-2xl font-bold mb-4">
+                An Asset That Grows With Your Family
+              </h4>
+              <p className="text-secondary-100 mb-6">
+                Unlike most agricultural investments that depreciate and require replacement, carob orchards are true generational assets. A tree planted today will still be producing for your grandchildren and beyond.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm">✓</span>
+                  <span>No replanting costs for 100+ years</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm">✓</span>
+                  <span>Yield increases every decade until peak</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm">✓</span>
+                  <span>Permanent carbon sequestration credit</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm">✓</span>
+                  <span>Land value appreciation built-in</span>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white/10 rounded-xl p-6 backdrop-blur">
+              <h5 className="font-semibold text-lg mb-4">50-Year Value Projection (250 ha)</h5>
+              <div className="space-y-4">
+                {proposal.financials.extendedProjections.slice(0, 5).map((proj) => (
+                  <div key={proj.year} className="flex items-center justify-between">
+                    <span className="text-secondary-200">Year {proj.year}</span>
+                    <div className="flex-1 mx-4 h-2 bg-white/20 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-secondary-300 rounded-full"
+                        style={{ width: `${(proj.cumulative / 50000000) * 100}%` }}
+                      />
+                    </div>
+                    <span className="font-bold">${(proj.cumulative / 1000000).toFixed(1)}M</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/20">
+                <div className="flex justify-between items-center">
+                  <span className="text-secondary-200">Lifetime Value (50 yrs)</span>
+                  <span className="text-3xl font-bold">${(proposal.financials.extendedProjections[5].cumulative / 1000000).toFixed(0)}M+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Impact Investor Appeal */}
       <section>
         <h3 className="text-xl font-semibold text-gray-900 mb-4">Impact Investor Appeal</h3>

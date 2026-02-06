@@ -9,6 +9,7 @@ const navItems = [
   { href: "/technical", label: "Technical" },
   { href: "/financials", label: "Financials" },
   { href: "/impact", label: "Impact" },
+  { href: "/conclusion", label: "Conclusion" },
 ];
 
 export function Navigation() {

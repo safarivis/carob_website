@@ -65,6 +65,74 @@ export default function TechnicalPage() {
         </div>
       </section>
 
+      {/* 100-Year Asset Banner */}
+      <section className="mb-12">
+        <div className="bg-gradient-to-r from-primary-700 to-primary-900 rounded-2xl p-8 text-white">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary-500 text-white font-bold text-xl">
+              100+
+            </span>
+            <div>
+              <h3 className="text-2xl font-bold">The 100-Year Asset</h3>
+              <p className="text-primary-200">A generational investment that appreciates over time</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div className="bg-white/10 rounded-xl p-4">
+              <h4 className="font-semibold mb-2">{proposal.technical.lifetimeValue.description}</h4>
+              <p className="text-sm text-primary-200">{proposal.technical.lifetimeValue.peakProduction}</p>
+            </div>
+            <div className="bg-white/10 rounded-xl p-4">
+              <h4 className="font-semibold mb-2">Generational Wealth</h4>
+              <p className="text-sm text-primary-200">{proposal.technical.lifetimeValue.generationalAsset}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Crop Comparison Table */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Lifetime Value Comparison</h3>
+        <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Crop</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Productive Life</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Cumulative Yield (100 yrs)</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Replant Cost</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Water Needs</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Maintenance</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {proposal.technical.cropComparison.map((crop, i) => (
+                  <tr key={i} className={crop.crop === "Carob" ? "bg-primary-50" : ""}>
+                    <td className="px-4 py-3 whitespace-nowrap">
+                      <span className={`font-medium ${crop.crop === "Carob" ? "text-primary-700" : "text-gray-900"}`}>
+                        {crop.crop}
+                        {crop.crop === "Carob" && (
+                          <span className="ml-2 px-2 py-0.5 text-xs bg-primary-200 text-primary-800 rounded">Best</span>
+                        )}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{crop.productiveLife}</td>
+                    <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700 font-medium">{crop.cumulativeYield100yr}</td>
+                    <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{crop.replantCost}</td>
+                    <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{crop.waterNeeds}</td>
+                    <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{crop.maintenance}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="px-4 py-3 bg-gray-50 text-xs text-gray-500">
+            * Almond and Apple require 3-4x replanting over 100 years. Cumulative yield accounts for establishment periods after each replant.
+          </div>
+        </div>
+      </section>
+
       {/* Climate Requirements */}
       <section className="mb-12">
         <h3 className="text-xl font-semibold text-gray-900 mb-4">Climate & Soil Requirements</h3>

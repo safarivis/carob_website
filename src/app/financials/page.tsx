@@ -195,6 +195,50 @@ export default function FinancialsPage() {
         </div>
       </section>
 
+      {/* Extended 50-Year Projection */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">50-Year Lifetime Value Projection</h3>
+        <div className="bg-gradient-to-br from-primary-800 to-primary-900 rounded-xl p-6 text-white">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary-500 text-white font-bold text-lg">
+              100+
+            </span>
+            <div>
+              <h4 className="font-semibold text-lg">The 100-Year Asset Advantage</h4>
+              <p className="text-primary-200 text-sm">Carob trees produce for over a century with increasing yields</p>
+            </div>
+          </div>
+          <div className="bg-white/10 rounded-xl p-4 mb-6">
+            <Chart
+              data={proposal.financials.extendedProjections}
+              type="bar"
+              xKey="year"
+              yKeys={[
+                { key: "cumulative", color: "#F59E0B", name: "Cumulative Returns" },
+              ]}
+              formatY={(v) => `$${(v / 1000000).toFixed(0)}M`}
+              formatX={(v) => `Y${v}`}
+              height={280}
+            />
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {proposal.financials.extendedProjections.map((proj) => (
+              <div key={proj.year} className="text-center">
+                <div className="text-xs text-primary-300 mb-1">Year {proj.year}</div>
+                <div className="text-xl font-bold text-secondary-400">${(proj.cumulative / 1000000).toFixed(1)}M</div>
+                <div className="text-xs text-primary-200">{proj.phase}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 pt-4 border-t border-white/20 flex justify-between items-center">
+            <span className="text-primary-200">Initial Investment: ${(proposal.summary.ask.amount / 1000000).toFixed(1)}M</span>
+            <span className="text-2xl font-bold text-secondary-400">
+              {Math.round(proposal.financials.extendedProjections[5].cumulative / proposal.summary.ask.amount)}x Return over 50 Years
+            </span>
+          </div>
+        </div>
+      </section>
+
       {/* Detailed Projections Table */}
       <section className="mb-12">
         <h3 className="text-xl font-semibold text-gray-900 mb-4">Year-by-Year Projections (Base Scenario)</h3>

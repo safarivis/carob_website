@@ -5,6 +5,17 @@ export const proposal = {
     domain: "carob.lewkai.com",
   },
 
+  investmentSummary: {
+    headline: "A 100-Year Asset for Generational Wealth",
+    keyPoints: [
+      { metric: "$1.4M", label: "Total Investment", sublabel: "over 8 years" },
+      { metric: "12%", label: "Target IRR", sublabel: "base case" },
+      { metric: "100+", label: "Years Productive", sublabel: "per tree" },
+      { metric: "$15M+", label: "Lifetime Value", sublabel: "50-year projection" },
+    ],
+    valueProposition: "Unlike annual crops requiring yearly replanting or orchards with 25-30 year lifespans, carob trees produce for over a century—creating a true generational asset that appreciates in value and yield over time.",
+  },
+
   summary: {
     opportunity:
       "A structural supply gap in the global carob market—driven by 65% decline in Mediterranean cultivation—creates a compelling window for new production in climate-suitable regions with lower cost structures.",
@@ -177,6 +188,14 @@ export const proposal = {
       { year: 14, capex: 0, opex: 230000, revenue: 900000, netCashFlow: 670000, cumulative: 1615000 },
       { year: 15, capex: 0, opex: 230000, revenue: 900000, netCashFlow: 670000, cumulative: 2285000 },
     ],
+    extendedProjections: [
+      { year: 15, revenue: 900000, cumulative: 2285000, phase: "Commercial production" },
+      { year: 20, revenue: 1100000, cumulative: 5785000, phase: "Building production" },
+      { year: 25, revenue: 1300000, cumulative: 9785000, phase: "Strong production" },
+      { year: 30, revenue: 1500000, cumulative: 14285000, phase: "Mature production" },
+      { year: 40, revenue: 1800000, cumulative: 30785000, phase: "Peak production" },
+      { year: 50, revenue: 1800000, cumulative: 48785000, phase: "Peak sustained" },
+    ],
     useOfFunds: [
       { category: "Land & infrastructure", amount: 575000, percent: 41 },
       { category: "Trees & planting", amount: 250000, percent: 18 },
@@ -195,6 +214,19 @@ export const proposal = {
       lifespan: "100+ years",
       height: "Up to 15m at maturity",
       fruit: "Pods (10-30cm), 90% pulp, 10% seeds",
+    },
+    cropComparison: [
+      { crop: "Carob", productiveLife: "100+ years", cumulativeYield100yr: "6,000-10,000 kg/tree", replantCost: "Once", waterNeeds: "Low", maintenance: "Minimal" },
+      { crop: "Olive", productiveLife: "50-100 years", cumulativeYield100yr: "3,000-6,000 kg/tree", replantCost: "1-2x", waterNeeds: "Low-Med", maintenance: "Medium" },
+      { crop: "Almond", productiveLife: "25-30 years", cumulativeYield100yr: "1,500-2,000 kg/tree*", replantCost: "3-4x", waterNeeds: "High", maintenance: "High" },
+      { crop: "Apple", productiveLife: "30-40 years", cumulativeYield100yr: "2,000-3,000 kg/tree*", replantCost: "2-3x", waterNeeds: "High", maintenance: "High" },
+      { crop: "Annual crops", productiveLife: "1 year", cumulativeYield100yr: "N/A", replantCost: "100x", waterNeeds: "Variable", maintenance: "Annual" },
+    ],
+    lifetimeValue: {
+      description: "A single carob tree planted today will still be producing in 2126",
+      peakProduction: "Trees reach peak production (80-200 kg/year) after 40 years and maintain it for 60+ more years",
+      generationalAsset: "Unlike most agricultural investments, carob orchards can be passed down through multiple generations without replanting",
+      appreciatingYield: "Yield increases every decade for the first 40 years, then plateaus at maximum production",
     },
     climate: {
       optimalTemp: "30-40°C",
@@ -304,6 +336,35 @@ export const proposal = {
     client: { name: "George Haggar", company: "Haggar Group" },
     preparedBy: { name: "Louis du Plessis", email: "louis@lewkai.com", company: "LewkAi" },
   },
+
+  conclusion: {
+    headline: "A Once-in-a-Generation Opportunity",
+    summary: "The convergence of declining Mediterranean production, rising global demand, and climate suitability in North Africa creates a compelling window for new carob production. Haggar Group is uniquely positioned to capitalize on this opportunity with its regional presence, agricultural experience, and access to suitable land.",
+    callToAction: "We invite you to explore this opportunity further and discuss how we can build a sustainable, profitable carob operation together.",
+    nextSteps: [
+      { step: 1, action: "Review this proposal", description: "Explore market analysis, technical details, and financial projections" },
+      { step: 2, action: "Schedule discovery call", description: "Discuss your questions, goals, and potential sites" },
+      { step: 3, action: "Site assessment", description: "Evaluate land options in Egypt and/or Sudan" },
+      { step: 4, action: "Finalize investment structure", description: "Agree on terms, timeline, and milestones" },
+    ],
+  },
+
+  documents: [
+    { name: "Executive Summary", description: "2-page overview of the opportunity", filename: "carob-executive-summary.pdf", type: "PDF" },
+    { name: "Full Business Plan", description: "Comprehensive 40-page business plan", filename: "carob-business-plan.pdf", type: "PDF" },
+    { name: "Financial Model", description: "Detailed projections and scenarios", filename: "carob-financial-model.xlsx", type: "Excel" },
+    { name: "Market Research", description: "Industry analysis and competitor review", filename: "carob-market-research.pdf", type: "PDF" },
+    { name: "Investor Deck", description: "Presentation slides for investors", filename: "carob-investor-deck.pdf", type: "PDF" },
+  ],
+
+  references: [
+    { title: "Global Carob Market Report 2024", source: "Mordor Intelligence", year: 2024 },
+    { title: "Carob Tree Cultivation Guide", source: "FAO", year: 2021 },
+    { title: "Locust Bean Gum Market Analysis", source: "Grand View Research", year: 2023 },
+    { title: "Mediterranean Agriculture Climate Impact", source: "EU Joint Research Centre", year: 2023 },
+    { title: "D-Pinitol Extraction from Carob", source: "Journal of Agricultural Chemistry", year: 2022 },
+    { title: "Sustainable Agroforestry in North Africa", source: "World Agroforestry", year: 2023 },
+  ],
 };
 
 export type Proposal = typeof proposal;

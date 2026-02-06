@@ -36,6 +36,32 @@ export default function Home() {
     <div>
       <Hero />
 
+      {/* Investment Summary Banner */}
+      <div className="bg-gradient-to-r from-primary-800 to-primary-900 text-white py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8">
+            <span className="inline-block px-3 py-1 text-xs font-semibold bg-secondary-500 text-white rounded-full mb-4">
+              100-YEAR ASSET
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              {proposal.investmentSummary.headline}
+            </h2>
+            <p className="text-primary-200 max-w-2xl mx-auto">
+              {proposal.investmentSummary.valueProposition}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {proposal.investmentSummary.keyPoints.map((point, i) => (
+              <div key={i} className="text-center p-4 bg-white/10 rounded-xl backdrop-blur">
+                <div className="text-3xl md:text-4xl font-bold text-secondary-400">{point.metric}</div>
+                <div className="text-sm font-semibold text-white mt-1">{point.label}</div>
+                <div className="text-xs text-primary-300">{point.sublabel}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
         {/* Key Metrics */}
         <section className="mb-16">
@@ -135,12 +161,13 @@ export default function Home() {
             title="Explore the Proposal"
             subtitle="Dive deeper into each aspect of this opportunity"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
               { href: "/market", title: "Market Analysis", desc: "Market size, segments, competitors, and trends" },
               { href: "/technical", title: "Technical Plan", desc: "Cultivation, yields, processing, and infrastructure" },
               { href: "/financials", title: "Financial Model", desc: "Investment, projections, scenarios, and returns" },
               { href: "/impact", title: "Impact & ESG", desc: "Environmental, social, and governance benefits" },
+              { href: "/conclusion", title: "Conclusion", desc: "Summary, next steps, downloads, and contact" },
             ].map((item) => (
               <Link
                 key={item.href}
