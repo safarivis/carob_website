@@ -12,8 +12,24 @@ type ScenarioKey = "conservative" | "base" | "optimistic";
 
 export default function FinancialsPage() {
   const [selectedScenario, setSelectedScenario] = useState<ScenarioKey>("base");
+  const [pricePerKg, setPricePerKg] = useState(2.5);
+  const [yieldMultiplier, setYieldMultiplier] = useState(100);
 
   const scenario = proposal.financials.scenarios[selectedScenario];
+
+  // Adjust projections based on slider values
+  const priceMultiplier = pricePerKg / 2.5;
+  const yieldMult = yieldMultiplier / 100;
+  const adjustedProjections = proposal.financials.projections.map((row) => ({
+    ...row,
+    revenue: Math.round(row.revenue * priceMultiplier * yieldMult),
+    netCashFlow: Math.round(
+      row.revenue * priceMultiplier * yieldMult - row.opex - row.capex
+    ),
+  })).map((row, i, arr) => ({
+    ...row,
+    cumulative: arr.slice(0, i + 1).reduce((sum, r) => sum + r.netCashFlow, 0),
+  }));
 
   const projectionColumns = [
     { key: "year", header: "Year", align: "center" as const },
@@ -180,15 +196,27 @@ export default function FinancialsPage() {
       {/* Interactive Calculator */}
       <section className="mb-12">
         <h3 className="text-xl font-semibold text-gray-900 mb-4">Adjust Your Assumptions</h3>
-        <InteractiveCalculator />
+        <InteractiveCalculator
+          pricePerKg={pricePerKg}
+          setPricePerKg={setPricePerKg}
+          yieldMultiplier={yieldMultiplier}
+          setYieldMultiplier={setYieldMultiplier}
+        />
       </section>
 
       {/* Cash Flow Chart */}
       <section className="mb-12">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">15-Year Cash Flow Projection</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">
+          15-Year Cash Flow Projection
+          {(pricePerKg !== 2.5 || yieldMultiplier !== 100) && (
+            <span className="ml-2 text-sm font-normal text-primary-600">
+              (adjusted: ${pricePerKg.toFixed(2)}/kg, {yieldMultiplier}% yield)
+            </span>
+          )}
+        </h3>
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <Chart
-            data={proposal.financials.projections}
+            data={adjustedProjections}
             type="area"
             xKey="year"
             yKeys={[

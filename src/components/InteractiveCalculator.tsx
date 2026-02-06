@@ -1,12 +1,16 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { proposal } from "@/data/proposal";
 
-export function InteractiveCalculator() {
-  const [pricePerKg, setPricePerKg] = useState(2.5); // Base case: $2.50/kg
-  const [yieldMultiplier, setYieldMultiplier] = useState(100); // 100% = base case
+interface Props {
+  pricePerKg: number;
+  setPricePerKg: (v: number) => void;
+  yieldMultiplier: number;
+  setYieldMultiplier: (v: number) => void;
+}
 
+export function InteractiveCalculator({ pricePerKg, setPricePerKg, yieldMultiplier, setYieldMultiplier }: Props) {
   const calculations = useMemo(() => {
     const baseRevenue = proposal.financials.scenarios.base.revenue;
     const baseEbitda = proposal.financials.scenarios.base.ebitda;
