@@ -101,6 +101,35 @@ export const proposal = {
       priceEnv: 4,
       overall: 3.8,
     },
+    pricing: {
+      marketSize2025: 248.1, // USD million
+      projectedSize2035: 412.1, // USD million
+      cagr: 5.2,
+      priceRanges: [
+        { product: "Raw pods (bulk)", pricePerKg: { min: 0.70, max: 1.50 }, notes: "FOB Mediterranean ports" },
+        { product: "Kibbled pulp (bulk)", pricePerKg: { min: 0.90, max: 2.00 }, notes: "Primary processed" },
+        { product: "Carob powder (wholesale)", pricePerKg: { min: 1.50, max: 9.00 }, notes: "Food-grade, varies by origin/quality" },
+        { product: "Carob powder (retail)", pricePerKg: { min: 15.00, max: 30.00 }, notes: "Health food stores, e-commerce" },
+        { product: "Carob syrup", pricePerKg: { min: 5.00, max: 15.00 }, notes: "Traditional/specialty markets" },
+        { product: "Locust bean gum (E410)", pricePerKg: { min: 10.00, max: 25.00 }, notes: "Food-grade thickener" },
+        { product: "D-Pinitol extract", pricePerKg: { min: 50.00, max: 200.00 }, notes: "95%+ purity, pharmaceutical grade" },
+      ],
+      historicalVolatility: {
+        note: "Significant price volatility observed 2022-2024",
+        range2022: { min: 1.31, max: 2.78 },
+        range2023: { min: 1.41, max: 47.74 },
+        range2024: { min: 1.95, max: 27.61 },
+      },
+      africanRetailExample: {
+        country: "South Africa",
+        source: "Liveable.co.za",
+        product: "Organic Carob Powder 200g",
+        priceZAR: 89,
+        pricePerKgZAR: 445,
+        pricePerKgUSD: 24, // approximate
+      },
+      implication: "Current projections use conservative wholesale pricing ($2.50/kg for powder). Retail and specialty markets offer 5-10x higher margins if distribution channels can be established.",
+    },
   },
 
   financials: {
@@ -429,6 +458,9 @@ export const proposal = {
     { title: "Mediterranean Agriculture Climate Impact", source: "EU Joint Research Centre", year: 2023 },
     { title: "D-Pinitol Extraction from Carob", source: "Journal of Agricultural Chemistry", year: 2022 },
     { title: "Sustainable Agroforestry in North Africa", source: "World Agroforestry", year: 2023 },
+    { title: "Global Carob Powder Pricing Data", source: "Tridge", year: 2024, url: "https://dir.tridge.com/prices/carob-powder" },
+    { title: "Carob Powder Market Analysis 2025-2035", source: "Fact.MR", year: 2025, url: "https://www.factmr.com/report/carob-powder-market" },
+    { title: "South African Retail Carob Pricing", source: "Liveable.co.za", year: 2026, url: "https://www.liveable.co.za/flour-baking-milling/158-carob-powder.html" },
   ],
 };
 

@@ -133,6 +133,91 @@ export default function MarketPage() {
         </div>
       </section>
 
+      {/* Market Pricing */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Market Pricing</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Price Ranges by Product */}
+          <div className="bg-white rounded-xl border border-gray-100 p-6">
+            <h4 className="font-semibold text-gray-900 mb-4">Current Price Ranges (USD/kg)</h4>
+            <div className="space-y-3">
+              {proposal.market.pricing.priceRanges.map((item) => (
+                <div key={item.product} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
+                  <div>
+                    <span className="font-medium text-gray-900">{item.product}</span>
+                    <p className="text-xs text-gray-500">{item.notes}</p>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-semibold text-primary-700">
+                      ${item.pricePerKg.min.toFixed(2)} - ${item.pricePerKg.max.toFixed(2)}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Price Volatility & Market Size */}
+          <div className="space-y-6">
+            <div className="bg-white rounded-xl border border-gray-100 p-6">
+              <h4 className="font-semibold text-gray-900 mb-4">Market Size Projection</h4>
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <p className="text-3xl font-bold text-primary-700">${proposal.market.pricing.marketSize2025}M</p>
+                  <p className="text-sm text-gray-500">2025 Market Size</p>
+                </div>
+                <div className="text-center px-4">
+                  <span className="inline-flex items-center text-secondary-600 font-semibold">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                  <p className="text-xs text-gray-500">{proposal.market.pricing.cagr}% CAGR</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-3xl font-bold text-secondary-600">${proposal.market.pricing.projectedSize2035}M</p>
+                  <p className="text-sm text-gray-500">2035 Projection</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl border border-gray-100 p-6">
+              <h4 className="font-semibold text-gray-900 mb-3">Historical Price Volatility</h4>
+              <p className="text-sm text-gray-600 mb-3">{proposal.market.pricing.historicalVolatility.note}</p>
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-xs text-gray-500">2022</p>
+                  <p className="font-semibold text-gray-700">${proposal.market.pricing.historicalVolatility.range2022.min}-${proposal.market.pricing.historicalVolatility.range2022.max}</p>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-xs text-gray-500">2023</p>
+                  <p className="font-semibold text-gray-700">${proposal.market.pricing.historicalVolatility.range2023.min}-${proposal.market.pricing.historicalVolatility.range2023.max}</p>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-xs text-gray-500">2024</p>
+                  <p className="font-semibold text-gray-700">${proposal.market.pricing.historicalVolatility.range2024.min}-${proposal.market.pricing.historicalVolatility.range2024.max}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Pricing Implication */}
+        <div className="mt-6 bg-primary-50 rounded-xl p-6 border border-primary-100">
+          <div className="flex items-start gap-4">
+            <span className="flex-shrink-0 w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+              <svg className="w-5 h-5 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </span>
+            <div>
+              <h4 className="font-semibold text-primary-800 mb-1">Conservative Projections with Upside Potential</h4>
+              <p className="text-sm text-primary-700">{proposal.market.pricing.implication}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Opportunity Assessment */}
       <section>
         <h3 className="text-xl font-semibold text-gray-900 mb-4">Opportunity Assessment</h3>

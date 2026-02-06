@@ -27,8 +27,18 @@ Key facts to remember:
 - Break-even: Year 12
 - Scale: 250 hectares, 25,000 trees
 - Location: Sudan and/or Egypt
-- Market size: $500M+ globally
-- CO2 sequestration: 500-1,000 tons/year`}
+- Market size: $248M (2025) growing to $412M by 2035 at 5.2% CAGR
+- CO2 sequestration: 500-1,000 tons/year
+- Tree lifespan: 100+ years (true generational asset)
+- 50-year cumulative value: $48M+ on $1.4M investment
+
+Market pricing context:
+- Raw pods: $0.70-1.50/kg bulk
+- Carob powder (wholesale): $1.50-9.00/kg
+- Carob powder (retail): $15-30/kg (South Africa ~$24/kg)
+- Locust bean gum: $10-25/kg
+- D-Pinitol extract: $50-200/kg (pharmaceutical grade)
+- Our projections use conservative $2.50/kg wholesale, with significant upside for premium/retail channels`}
         labels={{
           title: "Proposal Assistant",
           initial: "Ask me anything about this carob investment opportunity. I can explain the financials, market analysis, or generate custom projections.",
