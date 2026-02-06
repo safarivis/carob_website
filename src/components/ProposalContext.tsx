@@ -6,7 +6,7 @@ import { proposal } from "@/data/proposal";
 export function ProposalContext() {
   // Provide full proposal as readable context
   useCopilotReadable({
-    description: "Complete carob business proposal including market analysis, financials, technical plan, risks, and impact metrics",
+    description: "Complete carob investment analysis including market research, financials, technical plan, risks, and impact metrics",
     value: proposal,
   });
 
@@ -89,7 +89,7 @@ export function ProposalContext() {
   // Action: Generate email summary
   useCopilotAction({
     name: "generateEmailSummary",
-    description: "Generate an email summary of the proposal for a specific audience",
+    description: "Generate an email summary of the analysis for a specific audience",
     parameters: [
       {
         name: "recipientType",
@@ -118,7 +118,7 @@ export function ProposalContext() {
         },
         internal: {
           subject: "Carob Venture - Executive Summary",
-          intro: "Please find below a summary of the carob business proposal for Haggar Group.",
+          intro: "Please find below a summary of the carob investment analysis for Haggar Group.",
         },
       };
 

@@ -45,7 +45,7 @@ export default function TechnicalPage() {
       <SectionHeader
         badge="Technical Plan"
         title="Cultivation & Operations"
-        subtitle="Carob is a drought-tolerant, low-input crop with 100+ year lifespan and proven commercial viability."
+        subtitle="200 ha commercial operation: 20,000 trees, semi-intensive planting, integrated processing in Egypt."
       />
 
       {/* About the Carob Tree */}
@@ -89,6 +89,41 @@ export default function TechnicalPage() {
               <p className="text-sm text-gray-600">{item.detail}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Pollination - Critical for 20 ha Prototype */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Pollination Requirements</h3>
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-6">
+          <div className="flex items-start gap-3 mb-4">
+            <span className="text-amber-600 text-xl">⚠️</span>
+            <div>
+              <p className="font-semibold text-amber-800 mb-1">Critical for Orchard Planning</p>
+              <p className="text-sm text-amber-700">{proposal.technical.aboutTheTree.pollination.description}</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div className="bg-white/60 rounded-lg p-4">
+              <p className="text-sm font-medium text-amber-800">Male Tree Ratio</p>
+              <p className="text-lg font-bold text-amber-900">{proposal.technical.aboutTheTree.pollination.maleRatio}</p>
+            </div>
+            <div className="bg-white/60 rounded-lg p-4">
+              <p className="text-sm font-medium text-amber-800">Effective Producing Trees (200 ha / 20,000 trees)</p>
+              <p className="text-lg font-bold text-amber-900">~14,000-16,000 female trees</p>
+            </div>
+          </div>
+          <div className="bg-white/60 rounded-lg p-4">
+            <p className="text-sm font-medium text-amber-800 mb-2">Management Considerations:</p>
+            <ul className="space-y-1">
+              {proposal.technical.aboutTheTree.pollination.management.map((item, i) => (
+                <li key={i} className="text-sm text-amber-700 flex items-start gap-2">
+                  <span className="text-amber-500 mt-1">•</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -383,7 +418,7 @@ export default function TechnicalPage() {
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <DataTable data={proposal.technical.plantingSystems} columns={systemColumns} />
           <p className="mt-4 text-sm text-primary-700 font-medium">
-            Recommendation: Semi-intensive system (100 trees/ha) balances yield potential with manageable complexity.
+            200 ha Operation: Semi-intensive system (100 trees/ha) = 20,000 trees. This balances yield potential with manageable complexity and allows for integrated processing.
           </p>
         </div>
       </section>

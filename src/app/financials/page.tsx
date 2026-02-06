@@ -98,7 +98,7 @@ export default function FinancialsPage() {
       <SectionHeader
         badge="Financial Model"
         title="Investment & Returns"
-        subtitle="Detailed financial projections for a 250 ha medium-scale operation"
+        subtitle="Detailed financial projections for a 200 ha commercial operation ($3M investment)"
       />
 
       {/* Scenario Selector */}
@@ -150,11 +150,27 @@ export default function FinancialsPage() {
         </div>
       </section>
 
+      {/* IRR Caveat */}
+      <section className="mb-8">
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+          <div className="flex items-start gap-3">
+            <span className="text-amber-600 text-lg">⚠️</span>
+            <div>
+              <p className="text-sm font-medium text-amber-800 mb-1">IRR Clarification</p>
+              <p className="text-sm text-amber-700">
+                The 18% target IRR assumes base case conditions with primary processing. Conservative analysis suggests <strong>12% IRR</strong> is more realistic.
+                Value-add processing (carob powder, syrup) could push IRR to 25%+. Pre-investment validation recommended.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Scenario Comparison */}
       <section className="mb-12">
         <h3 className="text-xl font-semibold text-gray-900 mb-4">Scenario Comparison</h3>
         <div className="bg-white rounded-xl border border-gray-100 p-6">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {(["conservative", "base", "optimistic"] as const).map((s) => {
               const sc = proposal.financials.scenarios[s];
               const isSelected = selectedScenario === s;
@@ -207,7 +223,7 @@ export default function FinancialsPage() {
       {/* Cash Flow Chart */}
       <section className="mb-12">
         <h3 className="text-xl font-semibold text-gray-900 mb-4">
-          15-Year Cash Flow Projection
+          20-Year Cash Flow Projection
           {(pricePerKg !== 2.5 || yieldMultiplier !== 100) && (
             <span className="ml-2 text-sm font-normal text-primary-600">
               (adjusted: ${pricePerKg.toFixed(2)}/kg, {yieldMultiplier}% yield)
@@ -287,7 +303,7 @@ export default function FinancialsPage() {
         <h3 className="text-xl font-semibold text-gray-900 mb-4">Use of Funds</h3>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl border border-gray-100 p-6">
-            <h4 className="font-semibold text-gray-800 mb-4">Investment Breakdown ($1.4M)</h4>
+            <h4 className="font-semibold text-gray-800 mb-4">Investment Breakdown ($3M)</h4>
             <DataTable data={proposal.financials.useOfFunds} columns={fundColumns} />
           </div>
           <div className="bg-white rounded-xl border border-gray-100 p-6">
@@ -296,19 +312,100 @@ export default function FinancialsPage() {
               <div className="p-4 bg-primary-50 rounded-lg">
                 <div className="flex justify-between items-center mb-2">
                   <span className="font-medium text-primary-800">Phase 1: Establishment</span>
-                  <span className="font-bold text-primary-900">$1.15M</span>
+                  <span className="font-bold text-primary-900">$2.65M</span>
                 </div>
-                <p className="text-sm text-primary-600">Years 1-5: Land, infrastructure, trees, working capital</p>
+                <p className="text-sm text-primary-600">Years 1-5: Land, infrastructure, 20,000 trees, irrigation</p>
               </div>
               <div className="p-4 bg-secondary-50 rounded-lg">
                 <div className="flex justify-between items-center mb-2">
                   <span className="font-medium text-secondary-800">Phase 2: Processing</span>
-                  <span className="font-bold text-secondary-900">$250K</span>
+                  <span className="font-bold text-secondary-900">$350K</span>
                 </div>
-                <p className="text-sm text-secondary-600">Year 8: Kibbling equipment and facilities</p>
+                <p className="text-sm text-secondary-600">Year 8: Processing facility and equipment</p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* NPV Analysis */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">NPV Sensitivity Analysis</h3>
+        <div className="bg-white rounded-xl border border-gray-100 p-6">
+          <p className="text-sm text-gray-600 mb-4">
+            Net Present Value at different discount rates (25-year horizon):
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+            <div className="text-center p-4 bg-green-50 rounded-lg">
+              <p className="text-2xl font-bold text-green-700">$4.2M</p>
+              <p className="text-sm text-gray-600">@ 8% discount</p>
+              <p className="text-xs text-gray-500">Low risk assumption</p>
+            </div>
+            <div className="text-center p-4 bg-green-50 rounded-lg">
+              <p className="text-2xl font-bold text-green-700">$2.8M</p>
+              <p className="text-sm text-gray-600">@ 10% discount</p>
+              <p className="text-xs text-gray-500">Moderate risk</p>
+            </div>
+            <div className="text-center p-4 bg-green-50 rounded-lg">
+              <p className="text-2xl font-bold text-green-700">$1.6M</p>
+              <p className="text-sm text-gray-600">@ 12% discount</p>
+              <p className="text-xs text-gray-500">Higher risk</p>
+            </div>
+            <div className="text-center p-4 bg-yellow-50 rounded-lg">
+              <p className="text-2xl font-bold text-yellow-700">$400K</p>
+              <p className="text-sm text-gray-600">@ 15% discount</p>
+              <p className="text-xs text-gray-500">Marginal</p>
+            </div>
+          </div>
+          <p className="text-xs text-gray-500 text-center">
+            At discount rates below 15%, the project shows positive NPV. This aligns with the 18% target IRR.
+          </p>
+        </div>
+      </section>
+
+      {/* IRR Sensitivity Table */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">IRR Sensitivity Matrix</h3>
+        <div className="bg-white rounded-xl border border-gray-100 p-6 overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-gray-200">
+                <th className="text-left py-2 font-semibold text-gray-600">Price ($/kg)</th>
+                <th className="text-center py-2 font-semibold text-gray-600">100% Yield</th>
+                <th className="text-center py-2 font-semibold text-gray-600">80% Yield</th>
+                <th className="text-center py-2 font-semibold text-gray-600">60% Yield</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              <tr>
+                <td className="py-3 font-medium">$3.00</td>
+                <td className="py-3 text-center text-green-600 font-medium">25%</td>
+                <td className="py-3 text-center text-green-600 font-medium">18%</td>
+                <td className="py-3 text-center text-yellow-600 font-medium">10%</td>
+              </tr>
+              <tr className="bg-primary-50">
+                <td className="py-3 font-medium">$2.50 (base)</td>
+                <td className="py-3 text-center text-green-600 font-bold">18%</td>
+                <td className="py-3 text-center text-green-600 font-medium">12%</td>
+                <td className="py-3 text-center text-yellow-600 font-medium">5%</td>
+              </tr>
+              <tr>
+                <td className="py-3 font-medium">$2.00</td>
+                <td className="py-3 text-center text-green-600 font-medium">12%</td>
+                <td className="py-3 text-center text-yellow-600 font-medium">7%</td>
+                <td className="py-3 text-center text-red-600 font-medium">0%</td>
+              </tr>
+              <tr>
+                <td className="py-3 font-medium">$1.50</td>
+                <td className="py-3 text-center text-yellow-600 font-medium">5%</td>
+                <td className="py-3 text-center text-red-600 font-medium">1%</td>
+                <td className="py-3 text-center text-red-600 font-medium">-5%</td>
+              </tr>
+            </tbody>
+          </table>
+          <p className="text-xs text-gray-500 mt-4 text-center">
+            Highlighted row shows base case assumptions. Green = attractive, Yellow = marginal, Red = unviable.
+          </p>
         </div>
       </section>
 
@@ -316,9 +413,14 @@ export default function FinancialsPage() {
       <section>
         <h3 className="text-xl font-semibold text-gray-900 mb-4">Scale Options</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {(["pilot", "medium", "large"] as const).map((scale) => {
+          {(["phase1", "expansion", "fullScale"] as const).map((scale) => {
             const s = proposal.financials.scales[scale];
-            const isRecommended = scale === "medium";
+            const isRecommended = scale === "phase1";
+            const scaleLabels: Record<string, string> = {
+              phase1: "Phase 1: 200 ha",
+              expansion: "Expansion: 500 ha",
+              fullScale: "Full Scale: 1,000 ha",
+            };
             return (
               <div
                 key={scale}
@@ -327,10 +429,10 @@ export default function FinancialsPage() {
                 }`}
               >
                 <div className="flex items-center justify-between mb-3">
-                  <h4 className="font-semibold text-gray-900 capitalize">{scale}</h4>
+                  <h4 className="font-semibold text-gray-900">{scaleLabels[scale]}</h4>
                   {isRecommended && (
                     <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded">
-                      Recommended
+                      Current Focus
                     </span>
                   )}
                 </div>
@@ -346,13 +448,13 @@ export default function FinancialsPage() {
                   <div className="flex justify-between">
                     <span className="text-gray-500">Investment</span>
                     <span className="font-medium">
-                      ${(s.investment.min / 1000).toFixed(0)}K - ${(s.investment.max / 1000000).toFixed(1)}M
+                      ${(s.investment.min / 1000000).toFixed(1)}M - ${(s.investment.max / 1000000).toFixed(0)}M
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-500">Revenue (mature)</span>
                     <span className="font-medium">
-                      ${(s.revenueAtMaturity.min / 1000).toFixed(0)}K - ${(s.revenueAtMaturity.max / 1000000).toFixed(0)}M
+                      ${(s.revenueAtMaturity.min / 1000000).toFixed(1)}M - ${(s.revenueAtMaturity.max / 1000000).toFixed(0)}M
                     </span>
                   </div>
                   <div className="flex justify-between">

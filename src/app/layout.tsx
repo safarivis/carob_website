@@ -4,17 +4,17 @@ import { Navigation } from "@/components/Navigation";
 import { CopilotProvider } from "@/components/CopilotProvider";
 
 export const metadata: Metadata = {
-  title: "Carob Business Proposal | Haggar Group",
+  title: "Carob Investment Analysis | Haggar Group",
   description:
-    "Investment opportunity: Sustainable carob production in Sudan and Egypt. $1.4M investment, 12% projected IRR, strong ESG credentials.",
+    "Research analysis: Commercial carob production feasibility. 200 ha operation, $3M investment, 12-18% IRR range, 19-year payback. Independent benchmarks included.",
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
   },
   openGraph: {
-    title: "Carob Business Proposal | Haggar Group",
+    title: "Carob Investment Analysis | Haggar Group",
     description:
-      "Investment opportunity: Sustainable carob production in Sudan and Egypt.",
+      "Research analysis: Commercial carob production feasibility. Includes industry benchmarks and risk assessment.",
     type: "website",
     url: "https://carob.lewkai.com",
   },

@@ -30,8 +30,8 @@ export default function MarketPage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <SectionHeader
         badge="Market Analysis"
-        title="A $500M+ Global Opportunity"
-        subtitle="The global carob market is experiencing a renaissance driven by health trends, sustainability demands, and supply constraints in traditional producing regions."
+        title="Global Market Context"
+        subtitle="Understanding the carob market opportunity to validate the 20 ha prototype. Market data from Mordor Intelligence, FAO, and Tridge (2024)."
       />
 
       {/* Key Market Metrics */}
@@ -50,10 +50,10 @@ export default function MarketPage() {
             description="Projected annual growth"
           />
           <MetricCard
-            label="Supply Decline"
+            label="Supply Shift"
             value="65"
             unit="%"
-            description="Mediterranean cultivation reduction"
+            description="Mediterranean decline (supply moving to Turkey/Morocco)"
           />
           <MetricCard
             label="Opportunity Score"
@@ -61,6 +61,21 @@ export default function MarketPage() {
             unit="/5"
             description="Overall market attractiveness"
           />
+        </div>
+      </section>
+
+      {/* Market Data Note */}
+      <section className="mb-8">
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+          <div className="flex items-start gap-3">
+            <span className="text-blue-600 text-lg">ℹ️</span>
+            <div>
+              <p className="text-sm font-medium text-blue-800 mb-1">Market Data Context</p>
+              <p className="text-sm text-blue-700">
+                Market size estimates range from $247M to $500M depending on segment definitions and sources. The 65% Mediterranean decline represents a <strong>supply shift</strong> to Turkey (+5.2%/yr) and Morocco (63% of exports), not a supply gap. Competition exists in these growing regions.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

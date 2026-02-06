@@ -7,9 +7,34 @@ export default function ConclusionPage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <SectionHeader
         badge="Summary"
-        title="Investment Analysis Summary"
-        subtitle="Key findings and considerations for the carob production investment"
+        title="$3M Commercial Carob Operation"
+        subtitle="200 ha operation with integrated processing - key findings and recommended next steps"
       />
+
+      {/* Pre-Investment Validation */}
+      <section className="mb-12">
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+          <h3 className="text-lg font-semibold text-blue-800 mb-2">Recommended: Pre-Investment Validation (3-6 months)</h3>
+          <p className="text-sm text-blue-700 mb-4">
+            Before committing $3M capital, validate key assumptions through partnerships and site visits. This reduces risk at less than 2% of total capex.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {proposal.validationPhase?.options.map((option) => (
+              <div key={option.name} className="bg-white rounded-lg p-4 border border-blue-100">
+                <h4 className="font-semibold text-gray-900 text-sm mb-1">{option.name}</h4>
+                <p className="text-xs text-gray-600 mb-2">{option.description}</p>
+                <div className="flex justify-between text-xs">
+                  <span className="text-blue-600 font-medium">{option.cost}</span>
+                  <span className="text-gray-500">{option.timeline}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-blue-800 font-medium mt-4">
+            Total validation budget: {proposal.validationPhase?.totalBudget}
+          </p>
+        </div>
+      </section>
 
       {/* Pros and Cons */}
       <section className="mb-12">

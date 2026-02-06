@@ -12,36 +12,36 @@ interface Props {
 
 export function InteractiveCalculator({ pricePerKg, setPricePerKg, yieldMultiplier, setYieldMultiplier }: Props) {
   const calculations = useMemo(() => {
-    const baseRevenue = proposal.financials.scenarios.base.revenue;
-    const baseEbitda = proposal.financials.scenarios.base.ebitda;
-    const investment = proposal.summary.ask.amount;
+    const baseRevenue = proposal.financials.scenarios.base.revenue; // $720,000 for 200 ha
+    const baseEbitda = proposal.financials.scenarios.base.ebitda;   // $540,000 for 200 ha
+    const investment = proposal.summary.ask.amount;                  // $3,000,000 for 200 ha
 
     // Price effect: base assumes $2.50/kg, adjust proportionally
     const priceMultiplier = pricePerKg / 2.5;
     const yieldMult = yieldMultiplier / 100;
 
     const adjustedRevenue = Math.round(baseRevenue * priceMultiplier * yieldMult);
-    const adjustedEbitda = Math.round(adjustedRevenue * 0.74); // ~74% margin maintained
+    const adjustedEbitda = Math.round(adjustedRevenue * 0.75); // ~75% margin maintained
 
     // IRR approximation (simplified)
     const annualReturn = adjustedEbitda / investment;
-    const estimatedIRR = Math.min(35, Math.max(0, Math.round(annualReturn * 100 - 5)));
+    const estimatedIRR = Math.min(35, Math.max(0, Math.round(annualReturn * 100 - 2)));
 
-    // Payback approximation
+    // Payback approximation - accounts for 8+ years before any revenue plus time to recover investment
     const paybackYears = adjustedEbitda > 0
-      ? Math.max(7, Math.round(investment / adjustedEbitda) + 6)
-      : 20;
+      ? Math.max(14, Math.round(investment / adjustedEbitda) + 10)
+      : 30;
 
-    // 20-year value
-    const productiveYears = 20 - paybackYears + 1;
-    const twentyYearValue = adjustedEbitda * Math.max(0, productiveYears);
+    // 25-year value
+    const productiveYears = 25 - paybackYears + 1;
+    const twentyFiveYearValue = adjustedEbitda * Math.max(0, productiveYears);
 
     return {
       revenue: adjustedRevenue,
       ebitda: adjustedEbitda,
       irr: estimatedIRR,
       payback: paybackYears,
-      twentyYearValue,
+      twentyYearValue: twentyFiveYearValue,
       margin: pricePerKg >= 10 ? "retail" : pricePerKg >= 5 ? "premium" : "wholesale",
     };
   }, [pricePerKg, yieldMultiplier]);
@@ -169,10 +169,19 @@ export function InteractiveCalculator({ pricePerKg, setPricePerKg, yieldMultipli
         </div>
       </div>
 
+      {/* Disclaimer */}
+      <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+        <p className="text-xs text-amber-800 font-medium mb-1">⚠️ Estimation Disclaimer</p>
+        <p className="text-xs text-amber-700">
+          This calculator uses simplified heuristics, not full DCF/IRR analysis. Displayed IRR is an approximation
+          and may differ from proper financial modeling. Conservative analysis suggests 12% IRR vs 18% target under base assumptions.
+        </p>
+      </div>
+
       {/* Note */}
-      <p className="mt-4 text-xs text-gray-500 text-center">
-        Base case assumes $2.50/kg wholesale. Retail channels (SA: ~$24/kg) offer 5-10x margin upside.
-        Adjust sliders to explore different scenarios.
+      <p className="mt-3 text-xs text-gray-500 text-center">
+        200 ha operation: Base case assumes $2.50/kg wholesale, 800 tons/year at maturity.
+        Value-add processing and retail channels offer significant margin upside.
       </p>
     </div>
   );
