@@ -350,11 +350,11 @@ export const proposal = {
   },
 
   documents: [
-    { name: "Executive Summary", description: "2-page overview of the opportunity", filename: "carob-executive-summary.pdf", type: "PDF" },
-    { name: "Full Business Plan", description: "Comprehensive 40-page business plan", filename: "carob-business-plan.pdf", type: "PDF" },
-    { name: "Financial Model", description: "Detailed projections and scenarios", filename: "carob-financial-model.xlsx", type: "Excel" },
-    { name: "Market Research", description: "Industry analysis and competitor review", filename: "carob-market-research.pdf", type: "PDF" },
-    { name: "Investor Deck", description: "Presentation slides for investors", filename: "carob-investor-deck.pdf", type: "PDF" },
+    { name: "Executive Summary", description: "2-page overview of the opportunity", filename: "/docs/executive-summary.html", type: "HTML", downloadable: true },
+    { name: "Financial Model", description: "Detailed projections, scenarios, and 50-year forecast", filename: "/docs/carob-financial-model.xlsx", type: "Excel", downloadable: true },
+    { name: "Full Business Plan", description: "Comprehensive business plan (request access)", filename: "", type: "PDF", downloadable: false },
+    { name: "Market Research", description: "Industry analysis and competitor review (request access)", filename: "", type: "PDF", downloadable: false },
+    { name: "Investor Deck", description: "Presentation slides for investors (request access)", filename: "", type: "PDF", downloadable: false },
   ],
 
   references: [

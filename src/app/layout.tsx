@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   title: "Carob Business Proposal | Haggar Group",
   description:
     "Investment opportunity: Sustainable carob production in Sudan and Egypt. $1.4M investment, 12% projected IRR, strong ESG credentials.",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "Carob Business Proposal | Haggar Group",
     description:
