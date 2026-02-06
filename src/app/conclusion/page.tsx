@@ -91,9 +91,10 @@ export default function ConclusionPage() {
         <h3 className="text-xl font-semibold text-gray-900 mb-4">Documents & Downloads</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {proposal.documents.map((doc) => (
-            <div
+            <a
               key={doc.name}
-              className="bg-white rounded-xl border border-gray-100 p-5 hover:border-primary-200 transition-colors group cursor-pointer"
+              href={`mailto:${proposal.contact.preparedBy.email}?subject=Document Request: ${doc.name}&body=Hi Louis,%0D%0A%0D%0AI would like to request access to the ${doc.name} for the Carob Investment Proposal.%0D%0A%0D%0AThank you.`}
+              className="bg-white rounded-xl border border-gray-100 p-5 hover:border-primary-200 hover:shadow-md transition-all group"
             >
               <div className="flex items-start gap-4">
                 <span className={`flex items-center justify-center w-12 h-12 rounded-lg ${
@@ -115,19 +116,21 @@ export default function ConclusionPage() {
                   </h4>
                   <p className="text-sm text-gray-500 mt-1">{doc.description}</p>
                   <span className="inline-flex items-center text-xs text-primary-600 mt-2 font-medium">
-                    Download {doc.type}
+                    Request {doc.type}
                     <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </span>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
-        <p className="text-sm text-gray-500 mt-4">
-          Contact us to request access to detailed documents and financial models.
-        </p>
+        <div className="mt-6 p-4 bg-primary-50 rounded-xl border border-primary-100">
+          <p className="text-sm text-primary-800">
+            <strong>Request Documents:</strong> Click any document above to send an email request. We will provide access to detailed materials after an initial conversation to understand your investment interests.
+          </p>
+        </div>
       </section>
 
       {/* References */}
