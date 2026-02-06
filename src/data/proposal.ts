@@ -650,11 +650,11 @@ export const proposal = {
   },
 
   documents: [
-    { name: "Executive Summary", description: "2-page overview of the opportunity", filename: "/docs/executive-summary.html", type: "HTML", downloadable: true },
-    { name: "Financial Model", description: "Detailed projections, scenarios, and 50-year forecast", filename: "/docs/carob-financial-model.xlsx", type: "Excel", downloadable: true },
-    { name: "Full Business Plan", description: "Comprehensive business plan (request access)", filename: "", type: "PDF", downloadable: false },
+    { name: "Executive Summary", description: "2-page overview of the investment analysis", filename: "/docs/executive-summary.html", type: "HTML", downloadable: true },
+    { name: "Financial Model", description: "20-year projections with corrected payback (19 yrs)", filename: "/docs/carob-financial-model.xlsx", type: "Excel", downloadable: true },
+    { name: "Full Analysis Report", description: "Comprehensive analysis report (request access)", filename: "", type: "PDF", downloadable: false },
     { name: "Market Research", description: "Industry analysis and competitor review (request access)", filename: "", type: "PDF", downloadable: false },
-    { name: "Investor Deck", description: "Presentation slides for investors (request access)", filename: "", type: "PDF", downloadable: false },
+    { name: "Benchmarks Data", description: "Industry comparison data (view online)", filename: "/benchmarks", type: "HTML", downloadable: true },
   ],
 
   references: [
@@ -667,6 +667,9 @@ export const proposal = {
     { title: "Global Carob Powder Pricing Data", source: "Tridge", year: 2024, url: "https://dir.tridge.com/prices/carob-powder" },
     { title: "Carob Powder Market Analysis 2025-2035", source: "Fact.MR", year: 2025, url: "https://www.factmr.com/report/carob-powder-market" },
     { title: "South African Retail Carob Pricing", source: "Liveable.co.za", year: 2026, url: "https://www.liveable.co.za/flour-baking-milling/158-carob-powder.html" },
+    { title: "NCREIF Farmland Property Index", source: "NCREIF", year: 2024, url: "https://user.ncreif.org/data-products/farmland/" },
+    { title: "2024 NCREIF Farmland Performance Analysis", source: "FarmTogether", year: 2024, url: "https://farmtogether.com/learn/blog/breaking-down-the-2024-ncreif-farmland-performance-key-insights-and-trends" },
+    { title: "Almond Orchard Investment Analysis", source: "UC Davis", year: 2024, url: "https://coststudyfiles.ucdavis.edu" },
   ],
 };
 

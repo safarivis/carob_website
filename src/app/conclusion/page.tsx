@@ -69,7 +69,7 @@ export default function ConclusionPage() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <span className="text-red-600 font-bold">-</span>
-                <span className="text-red-900">12+ year payback period locks capital for extended time</span>
+                <span className="text-red-900">19-year payback period locks capital for extended time</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-red-600 font-bold">-</span>
@@ -113,7 +113,7 @@ export default function ConclusionPage() {
                 <td className="px-6 py-4 text-sm font-medium text-gray-500">Payback Period</td>
                 <td className="px-6 py-4 text-sm text-gray-900 text-right">
                   <span className="font-semibold">{proposal.summary.returns.payback} years</span>
-                  <span className="text-gray-500 text-xs ml-2">(Stress test: 16-20 yrs)</span>
+                  <span className="text-gray-500 text-xs ml-2">(Stress test: 22-30 yrs)</span>
                 </td>
               </tr>
               <tr>
