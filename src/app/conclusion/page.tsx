@@ -6,54 +6,70 @@ export default function ConclusionPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <SectionHeader
-        badge="Conclusion"
-        title={proposal.conclusion.headline}
-        subtitle={proposal.conclusion.summary}
+        badge="Summary"
+        title="Investment Analysis Summary"
+        subtitle="Key findings and considerations for the carob production investment"
       />
 
-      {/* Call to Action Banner */}
+      {/* Pros and Cons */}
       <section className="mb-12">
-        <div className="bg-gradient-to-r from-primary-700 to-primary-900 rounded-2xl p-8 text-white text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Ready to Build a 100-Year Asset?
-          </h2>
-          <p className="text-primary-200 max-w-2xl mx-auto mb-6">
-            {proposal.conclusion.callToAction}
-          </p>
-          <a
-            href={`mailto:${proposal.contact.preparedBy.email}?subject=Carob Investment Inquiry - ${proposal.contact.client.company}`}
-            className="inline-flex items-center px-6 py-3 bg-secondary-500 hover:bg-secondary-600 text-white font-semibold rounded-lg transition-colors"
-          >
-            Schedule a Call
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+            <h3 className="text-lg font-semibold text-green-800 mb-4">Potential Strengths</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">+</span>
+                <span className="text-green-900">100+ year productive lifespan creates generational asset</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">+</span>
+                <span className="text-green-900">Low input costs once established (drought-tolerant, minimal maintenance)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">+</span>
+                <span className="text-green-900">Supply gap due to Mediterranean decline (65% reduction)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">+</span>
+                <span className="text-green-900">Growing demand from health food and plant-based markets</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">+</span>
+                <span className="text-green-900">Strong ESG credentials (carbon sequestration, job creation)</span>
+              </li>
+            </ul>
+          </div>
+          <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+            <h3 className="text-lg font-semibold text-red-800 mb-4">Key Concerns</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <span className="text-red-600 font-bold">-</span>
+                <span className="text-red-900">12+ year payback period locks capital for extended time</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-red-600 font-bold">-</span>
+                <span className="text-red-900">Sudan political instability poses significant risk</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-red-600 font-bold">-</span>
+                <span className="text-red-900">No proven track record for carob in target region</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-red-600 font-bold">-</span>
+                <span className="text-red-900">Price volatility ($1.41-$47.74/kg range in 2023)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-red-600 font-bold">-</span>
+                <span className="text-red-900">No clear exit strategy or secondary market for assets</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      {/* Next Steps */}
+      {/* Investment Parameters */}
       <section className="mb-12">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">Next Steps</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {proposal.conclusion.nextSteps.map((step) => (
-            <div
-              key={step.step}
-              className="bg-white rounded-xl border border-gray-100 p-6 hover:border-primary-200 transition-colors"
-            >
-              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-100 text-primary-700 font-bold text-lg mb-4">
-                {step.step}
-              </span>
-              <h4 className="font-semibold text-gray-900 mb-2">{step.action}</h4>
-              <p className="text-sm text-gray-600">{step.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Investment Summary Table */}
-      <section className="mb-12">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">Investment Summary</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Investment Parameters</h3>
         <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
           <table className="min-w-full divide-y divide-gray-200">
             <tbody className="divide-y divide-gray-200">
@@ -62,39 +78,97 @@ export default function ConclusionPage() {
                 <td className="px-6 py-4 text-sm font-semibold text-gray-900 text-right">${proposal.summary.ask.amount.toLocaleString()} USD</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 text-sm font-medium text-gray-500">Target IRR (Base Case)</td>
-                <td className="px-6 py-4 text-sm font-semibold text-gray-900 text-right">{proposal.summary.returns.irr}%</td>
+                <td className="px-6 py-4 text-sm font-medium text-gray-500">IRR (Base Case)</td>
+                <td className="px-6 py-4 text-sm text-gray-900 text-right">
+                  <span className="font-semibold">{proposal.summary.returns.irr}%</span>
+                  <span className="text-gray-500 text-xs ml-2">(Stress test: 1-5%)</span>
+                </td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-500">Payback Period</td>
-                <td className="px-6 py-4 text-sm font-semibold text-gray-900 text-right">{proposal.summary.returns.payback} years</td>
+                <td className="px-6 py-4 text-sm text-gray-900 text-right">
+                  <span className="font-semibold">{proposal.summary.returns.payback} years</span>
+                  <span className="text-gray-500 text-xs ml-2">(Stress test: 16-20 yrs)</span>
+                </td>
               </tr>
               <tr>
-                <td className="px-6 py-4 text-sm font-medium text-gray-500">Asset Lifespan</td>
-                <td className="px-6 py-4 text-sm font-semibold text-primary-700 text-right">100+ years</td>
+                <td className="px-6 py-4 text-sm font-medium text-gray-500">Break-Even Price</td>
+                <td className="px-6 py-4 text-sm text-gray-900 text-right">
+                  <span className="font-semibold">${proposal.riskAnalysis.breakEvenAnalysis.minimumPrice}/kg</span>
+                  <span className="text-gray-500 text-xs ml-2">(minimum to recover capital)</span>
+                </td>
               </tr>
               <tr>
-                <td className="px-6 py-4 text-sm font-medium text-gray-500">50-Year Cumulative Value</td>
-                <td className="px-6 py-4 text-sm font-semibold text-primary-700 text-right">${(proposal.financials.extendedProjections[5].cumulative / 1000000).toFixed(0)}M+</td>
+                <td className="px-6 py-4 text-sm font-medium text-gray-500">Break-Even Yield</td>
+                <td className="px-6 py-4 text-sm text-gray-900 text-right">
+                  <span className="font-semibold">{proposal.riskAnalysis.breakEvenAnalysis.minimumYield}%</span>
+                  <span className="text-gray-500 text-xs ml-2">(of projected output)</span>
+                </td>
               </tr>
-              <tr className="bg-primary-50">
-                <td className="px-6 py-4 text-sm font-medium text-primary-700">Return Multiple (50 yrs)</td>
-                <td className="px-6 py-4 text-lg font-bold text-primary-700 text-right">{Math.round(proposal.financials.extendedProjections[5].cumulative / proposal.summary.ask.amount)}x</td>
+              <tr className="bg-gray-50">
+                <td className="px-6 py-4 text-sm font-medium text-gray-700">Risk-Adjusted Assessment</td>
+                <td className="px-6 py-4 text-sm font-semibold text-gray-900 text-right">Moderate-High Risk</td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
 
-      {/* Document Downloads */}
+      {/* Recommended Due Diligence */}
       <section className="mb-12">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">Documents & Downloads</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Recommended Due Diligence</h3>
+        <div className="bg-white rounded-xl border border-gray-100 p-6">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {proposal.riskAnalysis.questionsToAnswer.slice(0, 6).map((question, i) => (
+              <li key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                <input type="checkbox" className="mt-1 h-4 w-4 rounded border-gray-300" />
+                <span className="text-sm text-gray-700">{question}</span>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/risks"
+            className="inline-flex items-center text-sm text-primary-600 hover:text-primary-700 mt-4 font-medium"
+          >
+            View full risk analysis
+            <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+      </section>
+
+      {/* Alternative Approaches */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Alternative Approaches to Consider</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {proposal.riskAnalysis.alternativeConsiderations.map((alt) => (
+            <div key={alt.option} className="bg-white rounded-xl border border-gray-100 p-5">
+              <h4 className="font-semibold text-gray-900 mb-3">{alt.option}</h4>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-start gap-2">
+                  <span className="text-green-600 font-medium">+</span>
+                  <span className="text-gray-600">{alt.pros}</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-red-600 font-medium">-</span>
+                  <span className="text-gray-600">{alt.cons}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Documents & Downloads */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Supporting Documents</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {proposal.documents.map((doc) => {
             const isDownloadable = doc.downloadable && doc.filename;
             const href = isDownloadable
               ? doc.filename
-              : `mailto:${proposal.contact.preparedBy.email}?subject=Document Request: ${doc.name}&body=Hi Louis,%0D%0A%0D%0AI would like to request access to the ${doc.name} for the Carob Investment Proposal.%0D%0A%0D%0AThank you.`;
+              : `mailto:${proposal.contact.preparedBy.email}?subject=Document Request: ${doc.name}&body=Hi Louis,%0D%0A%0D%0AI would like to request access to the ${doc.name} for the Carob Investment Analysis.%0D%0A%0D%0AThank you.`;
 
             return (
               <a
@@ -136,39 +210,17 @@ export default function ConclusionPage() {
                       )}
                     </div>
                     <p className="text-sm text-gray-500 mt-1">{doc.description}</p>
-                    <span className="inline-flex items-center text-xs text-primary-600 mt-2 font-medium">
-                      {isDownloadable ? (
-                        <>
-                          Download {doc.type}
-                          <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                          </svg>
-                        </>
-                      ) : (
-                        <>
-                          Request Access
-                          <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                          </svg>
-                        </>
-                      )}
-                    </span>
                   </div>
                 </div>
               </a>
             );
           })}
         </div>
-        <div className="mt-6 p-4 bg-primary-50 rounded-xl border border-primary-100">
-          <p className="text-sm text-primary-800">
-            <strong>Tip:</strong> The Executive Summary opens in a new tab - use your browser&apos;s Print function (Ctrl/Cmd+P) and select &quot;Save as PDF&quot; to download. The Financial Model downloads directly as an Excel file.
-          </p>
-        </div>
       </section>
 
       {/* References */}
       <section className="mb-12">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">References & Sources</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Data Sources & References</h3>
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <ul className="space-y-3">
             {proposal.references.map((ref, i) => (
@@ -184,56 +236,40 @@ export default function ConclusionPage() {
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className="mb-12">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">Contact Information</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl border border-gray-100 p-6">
-            <h4 className="font-semibold text-gray-900 mb-4">Prepared For</h4>
-            <div className="space-y-2">
-              <p className="text-lg font-semibold text-primary-700">{proposal.contact.client.name}</p>
-              <p className="text-gray-600">{proposal.contact.client.company}</p>
-            </div>
-          </div>
-          <div className="bg-white rounded-xl border border-gray-100 p-6">
-            <h4 className="font-semibold text-gray-900 mb-4">Prepared By</h4>
-            <div className="space-y-2">
-              <p className="text-lg font-semibold text-primary-700">{proposal.contact.preparedBy.name}</p>
-              <p className="text-gray-600">{proposal.contact.preparedBy.company}</p>
+      {/* Prepared By */}
+      <section>
+        <div className="bg-gray-50 rounded-xl p-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+              <p className="text-sm text-gray-500 mb-1">Analysis prepared by</p>
+              <p className="font-semibold text-gray-900">{proposal.contact.preparedBy.name}</p>
+              <p className="text-sm text-gray-600">{proposal.contact.preparedBy.company}</p>
               <a
                 href={`mailto:${proposal.contact.preparedBy.email}`}
-                className="text-primary-600 hover:text-primary-700 transition-colors"
+                className="text-sm text-primary-600 hover:text-primary-700"
               >
                 {proposal.contact.preparedBy.email}
               </a>
             </div>
+            <div className="text-right">
+              <p className="text-sm text-gray-500 mb-1">Prepared for</p>
+              <p className="font-semibold text-gray-900">{proposal.contact.client.name}</p>
+              <p className="text-sm text-gray-600">{proposal.contact.client.company}</p>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section>
-        <div className="bg-gray-50 rounded-xl p-8 text-center">
-          <p className="text-gray-600 mb-4">
-            Proposal prepared on {new Date(proposal.meta.prepared).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric"
-            })}
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="mt-6 pt-6 border-t border-gray-200 flex flex-wrap justify-center gap-4">
             <Link
-              href="/"
-              className="px-6 py-2 bg-white border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+              href="/financials"
+              className="px-5 py-2.5 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
             >
-              Back to Overview
+              Run Scenarios
             </Link>
-            <a
-              href={`mailto:${proposal.contact.preparedBy.email}?subject=Carob Investment Inquiry - ${proposal.contact.client.company}`}
-              className="px-6 py-2 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
+            <Link
+              href="/risks"
+              className="px-5 py-2.5 bg-white border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
             >
-              Get in Touch
-            </a>
+              Review Risks
+            </Link>
           </div>
         </div>
       </section>

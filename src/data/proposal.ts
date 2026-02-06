@@ -360,12 +360,85 @@ export const proposal = {
   },
 
   risks: [
-    { name: "Long lead time", likelihood: "Certain", impact: "High", description: "6-10 years to commercial production", mitigation: "Patient capital structure; phased investment" },
-    { name: "Regional instability", likelihood: "Variable", impact: "High", description: "Sudan/Egypt political factors", mitigation: "Multi-site strategy; Egypt priority" },
-    { name: "Quality standards", likelihood: "High", impact: "High", description: "Meeting international food safety", mitigation: "Early certification; quality systems" },
-    { name: "Price volatility", likelihood: "Medium", impact: "High", description: "Commodity price swings", mitigation: "Offtake agreements; product diversification" },
-    { name: "Variety selection", likelihood: "Low", impact: "High", description: "Wrong varieties affect yields", mitigation: "Expert consultation; trial plots" },
+    { name: "Long lead time", likelihood: "Certain", impact: "High", description: "6-10 years to commercial production", mitigation: "Patient capital structure; phased investment", category: "Financial" },
+    { name: "Regional instability", likelihood: "Variable", impact: "High", description: "Sudan/Egypt political factors", mitigation: "Multi-site strategy; Egypt priority", category: "Political" },
+    { name: "Quality standards", likelihood: "High", impact: "High", description: "Meeting international food safety", mitigation: "Early certification; quality systems", category: "Operational" },
+    { name: "Price volatility", likelihood: "Medium", impact: "High", description: "Commodity price swings", mitigation: "Offtake agreements; product diversification", category: "Market" },
+    { name: "Variety selection", likelihood: "Low", impact: "High", description: "Wrong varieties affect yields", mitigation: "Expert consultation; trial plots", category: "Technical" },
   ],
+
+  riskAnalysis: {
+    summary: "This investment carries significant risks that must be carefully weighed against potential returns. The long payback period and regional uncertainties require thorough due diligence.",
+
+    criticalConcerns: [
+      {
+        title: "Illiquidity & Long Horizon",
+        severity: "High",
+        description: "Capital is locked for 12+ years before break-even. No clear exit strategy exists. Trees are immovable assets with no secondary market.",
+        questions: ["What is the exit plan if circumstances change?", "Can you afford to lock up $1.4M for 15+ years?", "What happens to the investment if you need liquidity?"]
+      },
+      {
+        title: "Sudan Political Risk",
+        severity: "Critical",
+        description: "Ongoing civil conflict, sanctions risk, currency instability, and uncertain rule of law. Foreign asset seizure is a real possibility.",
+        questions: ["Is Sudan viable given current instability?", "What legal protections exist for foreign investors?", "How would you repatriate profits?"]
+      },
+      {
+        title: "No Proven Track Record",
+        severity: "Medium",
+        description: "This is a greenfield project with no existing operations to evaluate. Projections are theoretical based on Mediterranean data that may not apply to East Africa.",
+        questions: ["Has carob been commercially grown in Sudan/Egypt before?", "What pilot results exist?", "Who has agronomic expertise for this region?"]
+      },
+      {
+        title: "Price Assumption Risk",
+        severity: "High",
+        description: "Projections assume $2.50/kg wholesale. Historical prices ranged from $1.41 to $47.74/kg in 2023 alone. A sustained price below $2/kg would significantly impact returns.",
+        questions: ["What price makes this investment unviable?", "Are there any offtake agreements in place?", "How volatile is the carob market really?"]
+      },
+    ],
+
+    riskMatrix: [
+      { risk: "Political instability (Sudan)", likelihood: 4, impact: 5, score: 20, action: "Consider Egypt-only strategy" },
+      { risk: "Price collapse (<$1.50/kg)", likelihood: 2, impact: 5, score: 10, action: "Stress test at lower prices" },
+      { risk: "Yield underperformance", likelihood: 3, impact: 4, score: 12, action: "Use conservative projections" },
+      { risk: "Quality/certification failure", likelihood: 3, impact: 4, score: 12, action: "Budget for quality systems" },
+      { risk: "Currency devaluation", likelihood: 4, impact: 3, score: 12, action: "Price in USD, hold USD" },
+      { risk: "Water access issues", likelihood: 2, impact: 4, score: 8, action: "Site selection critical" },
+      { risk: "Management execution", likelihood: 3, impact: 4, score: 12, action: "Identify experienced operators" },
+      { risk: "Climate/weather events", likelihood: 2, impact: 3, score: 6, action: "Carob is drought-resistant" },
+    ],
+
+    stressScenarios: [
+      { name: "Base Case", pricePerKg: 2.5, yieldPercent: 100, irr: 12, payback: 12, description: "Current projections" },
+      { name: "Conservative", pricePerKg: 1.8, yieldPercent: 80, irr: 5, payback: 16, description: "Lower prices, slower yields" },
+      { name: "Stress Test", pricePerKg: 1.5, yieldPercent: 70, irr: 1, payback: 20, description: "Significant headwinds" },
+      { name: "Worst Case", pricePerKg: 1.2, yieldPercent: 60, irr: -3, payback: 25, description: "Major market downturn" },
+    ],
+
+    breakEvenAnalysis: {
+      minimumPrice: 1.4, // USD/kg to break even over 20 years
+      minimumYield: 65, // percent of projected yield
+      note: "Below these thresholds, the investment does not recover capital within 20 years"
+    },
+
+    questionsToAnswer: [
+      "What is the realistic exit strategy if you need to divest?",
+      "Who will manage day-to-day operations on the ground?",
+      "What legal structure protects the investment in each country?",
+      "Are there any existing carob buyers interested in offtake agreements?",
+      "What is the total exposure you're comfortable with in this region?",
+      "Have you visited potential sites and met local partners?",
+      "What due diligence has been done on land titles and water rights?",
+      "How will profits be repatriated given currency controls?",
+    ],
+
+    alternativeConsiderations: [
+      { option: "Smaller pilot (50 ha)", pros: "Lower risk, test assumptions", cons: "Lower returns, still long horizon" },
+      { option: "Egypt only", pros: "More stable, better infrastructure", cons: "Higher costs, lower margins" },
+      { option: "Joint venture with local operator", pros: "Shared risk, local expertise", cons: "Less control, profit sharing" },
+      { option: "Wait and monitor", pros: "Let others prove the model", cons: "May miss window if it works" },
+    ],
+  },
 
   impact: {
     environmental: {

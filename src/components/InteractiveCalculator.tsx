@@ -55,13 +55,40 @@ export function InteractiveCalculator({ pricePerKg, setPricePerKg, yieldMultipli
 
   const marginInfo = getMarginLabel();
 
+  const presets = [
+    { name: "Base Case", price: 2.5, yield: 100 },
+    { name: "Conservative", price: 1.8, yield: 80 },
+    { name: "Stress Test", price: 1.5, yield: 70 },
+    { name: "Optimistic", price: 5.0, yield: 120 },
+  ];
+
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-6">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-gray-900">Interactive Projection Calculator</h3>
         <span className={`px-3 py-1 text-xs font-medium rounded-full ${marginInfo.color}`}>
           {marginInfo.label}
         </span>
+      </div>
+
+      {/* Preset Buttons */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {presets.map((preset) => (
+          <button
+            key={preset.name}
+            onClick={() => {
+              setPricePerKg(preset.price);
+              setYieldMultiplier(preset.yield);
+            }}
+            className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+              pricePerKg === preset.price && yieldMultiplier === preset.yield
+                ? "bg-primary-600 text-white"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+            }`}
+          >
+            {preset.name}
+          </button>
+        ))}
       </div>
 
       {/* Sliders */}

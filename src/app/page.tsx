@@ -132,16 +132,17 @@ export default function Home() {
         {/* Explore Sections */}
         <section>
           <SectionHeader
-            title="Explore the Proposal"
-            subtitle="Dive deeper into each aspect of this opportunity"
+            title="Analysis Sections"
+            subtitle="Review each area of the investment analysis"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
             {[
-              { href: "/market", title: "Market Analysis", desc: "Market size, segments, competitors, and trends" },
-              { href: "/technical", title: "Technical Plan", desc: "Cultivation, yields, processing, and infrastructure" },
-              { href: "/financials", title: "Financial Model", desc: "Investment, projections, scenarios, and returns" },
-              { href: "/impact", title: "Impact & ESG", desc: "Environmental, social, and governance benefits" },
-              { href: "/conclusion", title: "Conclusion", desc: "Summary, next steps, downloads, and contact" },
+              { href: "/market", title: "Market Data", desc: "Market size, pricing, competitors, and trends" },
+              { href: "/technical", title: "Technical", desc: "Cultivation, yields, processing requirements" },
+              { href: "/financials", title: "Financials", desc: "Projections, scenarios, interactive model" },
+              { href: "/risks", title: "Risk Analysis", desc: "Critical concerns, stress tests, due diligence" },
+              { href: "/impact", title: "Impact & ESG", desc: "Environmental and social considerations" },
+              { href: "/conclusion", title: "Summary", desc: "Key findings, pros/cons, next steps" },
             ].map((item) => (
               <Link
                 key={item.href}

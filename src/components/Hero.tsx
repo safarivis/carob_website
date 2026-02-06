@@ -9,32 +9,32 @@ export function Hero() {
           {/* Left: Text Content */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="px-3 py-1 text-xs font-semibold bg-secondary-500 text-white rounded-full">
-                100-YEAR ASSET
+              <span className="px-3 py-1 text-xs font-semibold bg-white/20 text-white rounded-full">
+                INVESTMENT ANALYSIS
               </span>
-              <span className="text-primary-300 text-sm">Investment Opportunity</span>
+              <span className="text-primary-300 text-sm">For George Haggar</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-              {proposal.summary.tagline}
+              Carob Production Investment
             </h1>
             <p className="text-primary-200 mb-6 leading-relaxed">
-              {proposal.summary.opportunity}
+              Analysis of a potential commercial carob operation in Sudan/Egypt. This report evaluates market conditions, financial projections, technical requirements, and key risks.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
                 href="/financials"
                 className="inline-flex items-center px-5 py-2.5 bg-secondary-500 hover:bg-secondary-600 text-white font-semibold rounded-lg transition-colors"
               >
-                View Financials
+                Financial Model
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </a>
               <a
-                href="/market"
+                href="/risks"
                 className="inline-flex items-center px-5 py-2.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors"
               >
-                Explore Market
+                View Risks
               </a>
             </div>
           </div>

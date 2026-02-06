@@ -8,8 +8,9 @@ const navItems = [
   { href: "/market", label: "Market" },
   { href: "/technical", label: "Technical" },
   { href: "/financials", label: "Financials" },
+  { href: "/risks", label: "Risks" },
   { href: "/impact", label: "Impact" },
-  { href: "/conclusion", label: "Conclusion" },
+  { href: "/conclusion", label: "Summary" },
 ];
 
 export function Navigation() {
@@ -21,7 +22,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-2xl">🌳</span>
-            <span className="font-bold text-primary text-lg">Carob Venture</span>
+            <span className="font-bold text-primary text-lg">Carob Analysis</span>
           </Link>
           <div className="flex items-center gap-1">
             {navItems.map((item) => {
