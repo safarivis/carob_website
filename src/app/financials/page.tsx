@@ -5,6 +5,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { MetricCard } from "@/components/MetricCard";
 import { DataTable } from "@/components/DataTable";
 import { Chart, defaultColors } from "@/components/Chart";
+import { InteractiveCalculator } from "@/components/InteractiveCalculator";
 import { proposal } from "@/data/proposal";
 
 type ScenarioKey = "conservative" | "base" | "optimistic";
@@ -174,6 +175,12 @@ export default function FinancialsPage() {
             })}
           </div>
         </div>
+      </section>
+
+      {/* Interactive Calculator */}
+      <section className="mb-12">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4">Adjust Your Assumptions</h3>
+        <InteractiveCalculator />
       </section>
 
       {/* Cash Flow Chart */}
